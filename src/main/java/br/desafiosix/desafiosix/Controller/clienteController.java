@@ -2,6 +2,7 @@ package br.desafiosix.desafiosix.Controller;
 
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,7 @@ public class clienteController {
     @CrossOrigin
     @GetMapping("/")
     public List<Cliente> getClientes(){
-        return clienteRepository.findAll();
+        return clienteRepository.findAll(Sort.by(Sort.Direction.DESC, "codCliente"));
     }
 
     @CrossOrigin
